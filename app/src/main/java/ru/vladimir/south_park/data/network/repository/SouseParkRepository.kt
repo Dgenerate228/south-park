@@ -7,7 +7,10 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.vladimir.south_park.data.network.api.SouthParkApi
+import ru.vladimir.south_park.data.network.response.characters.CharacterResponseOverview
+import ru.vladimir.south_park.data.network.response.characters.CharactersResponseOverviewModel
 import ru.vladimir.south_park.domain.model.CharacterModel
+import ru.vladimir.south_park.domain.model.CharacterOverviewModel
 
 class SouseParkRepository() {
 
@@ -40,7 +43,26 @@ class SouseParkRepository() {
         }
 
     /**
-     *     ToDo Метод для запроса деталей персонажа
-     *     ToDo Создать В domain модель и вернуть ее в этом списке
+     *     ToDo Метод для запроса деталей персонажа +
+     *     ToDo Создать В domain модель и вернуть ее в этом списке +
      */
+
+    suspend fun getCharacterOverview(): List<CharacterOverviewModel> =
+//        Меняем поток с UI(Поток для отрисовки экрана) на IO(Поток для запросов в сеть)
+        withContext(Dispatchers.IO) {
+
+//            Запрос в сеть и приведение к типу List<CharacterModel>
+            southParkApi.getCharacterOverview().characters.map { characterResponseOverview ->
+                CharacterOverviewModel(
+                    id = characterResponseOverview.id.toString(),
+                    name = characterResponseOverview.name,
+                    age = characterResponseOverview.age,
+                    sex = characterResponseOverview.sex,
+                    hair_color = characterResponseOverview.hairColor,
+                    occupation = characterResponseOverview.occupation,
+                    religion = characterResponseOverview.religion,
+                    voiced_by = characterResponseOverview.voiced_by
+                )
+            }
+        }
 }
