@@ -25,7 +25,7 @@ class HomeViewModel : ViewModel() {
     private fun getCharacters() {
         viewModelScope.launch {
 //            Запрос в сеть
-            val characters = souseParkRepository.getCharactersResponse()
+            val characters = souseParkRepository.getCharacters()
 //           Измененеие данных в charactersState
             _charactersState.emit(characters)
 //            Оповещение об обнавление данных идёт в месте где вызывается observe

@@ -21,4 +21,7 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
         val text = "${binding.characterOverviewTestTv.text}: $characterId"
         binding.characterOverviewTestTv.text = text
     }
+
+    // ToDo По аналогии с HomeFragment создать ViewModel
+    // ToDO И подписаться на state(источник данных)
 }

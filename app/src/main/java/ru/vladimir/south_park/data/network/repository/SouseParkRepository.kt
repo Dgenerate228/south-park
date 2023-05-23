@@ -2,7 +2,6 @@ package ru.vladimir.south_park.data.network.repository
 
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -26,11 +25,9 @@ class SouseParkRepository() {
     //    Класс для запрос в сеть
     private val southParkApi = retrofit.create(SouthParkApi::class.java)
 
-    suspend fun getCharactersResponse(): List<CharacterModel> =
+    suspend fun getCharacters(): List<CharacterModel> =
 //        Меняем поток с UI(Поток для отрисовки экрана) на IO(Поток для запросв в сеть)
         withContext(Dispatchers.IO) {
-            delay(3000L)
-
 //            Запрос в сеть и приведение к типу List<CharacterModel>
             southParkApi.getCharacters().characters.map { characterResponse ->
                 CharacterModel(
@@ -41,4 +38,9 @@ class SouseParkRepository() {
                 )
             }
         }
+
+    /**
+     *     ToDo Метод для запроса деталей персонажа
+     *     ToDo Создать В domain модель и вернуть ее в этом списке
+     */
 }
