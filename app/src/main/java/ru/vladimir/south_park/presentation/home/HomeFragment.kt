@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.vladimir.south_park.R
 import ru.vladimir.south_park.common.data.observe
@@ -15,7 +16,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val viewModel: HomeViewModel by viewModels()
 
-    private val charactersAdapter by lazy { CharactersAdapter() }
+    private val charactersAdapter by lazy {
+        CharactersAdapter(onItemClick = { openCharacterOverviewFragment(it) })
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,5 +45,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
              */
             charactersAdapter.submitList(characters)
         }
+    }
+
+    private fun openCharacterOverviewFragment(characterId: String) {
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToCharacterOverviewFragment(characterId)
+        )
     }
 }

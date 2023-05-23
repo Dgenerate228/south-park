@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.vladimir.south_park.databinding.ItemCharacterBinding
 import ru.vladimir.south_park.domain.model.CharacterModel
 
-class CharactersAdapter : ListAdapter<CharacterModel, CharactersAdapter.ViewHolder>(
+class CharactersAdapter(
+    private val onItemClick: (characterId: String) -> Unit,
+) : ListAdapter<CharacterModel, CharactersAdapter.ViewHolder>(
     CharactersDiffUtil()
 ) {
 
@@ -27,6 +29,7 @@ class CharactersAdapter : ListAdapter<CharacterModel, CharactersAdapter.ViewHold
             itemCharacterNameTv.text = character.name
             itemCharacterAgeTv.text = age
             itemCharacterSexTv.text = character.sex
+            itemCharacterContainerCv.setOnClickListener { onItemClick(character.id) }
         }
     }
 

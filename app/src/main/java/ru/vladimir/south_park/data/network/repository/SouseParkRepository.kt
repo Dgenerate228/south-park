@@ -12,7 +12,7 @@ import ru.vladimir.south_park.domain.model.CharacterModel
 
 class SouseParkRepository() {
 
-//    Создание инструментов для работы с сетью
+    //    Создание инструментов для работы с сетью
     private val gson = GsonBuilder()
         .setLenient()
         .create()
@@ -22,7 +22,8 @@ class SouseParkRepository() {
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttpClient)
         .build()
-//    Класс для запрос в сеть
+
+    //    Класс для запрос в сеть
     private val southParkApi = retrofit.create(SouthParkApi::class.java)
 
     suspend fun getCharactersResponse(): List<CharacterModel> =
@@ -33,7 +34,7 @@ class SouseParkRepository() {
 //            Запрос в сеть и приведение к типу List<CharacterModel>
             southParkApi.getCharacters().characters.map { characterResponse ->
                 CharacterModel(
-                    id = characterResponse.id,
+                    id = characterResponse.id.toString(),
                     name = characterResponse.name,
                     age = characterResponse.age,
                     sex = characterResponse.sex
