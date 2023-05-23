@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ru.vladimir.south_park.presentation.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_characterOverviewFragment"
+            app:destination="@id/characterOverviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterOverviewFragment"
+        android:name="ru.vladimir.south_park.presentation.character_overview.CharacterOverviewFragment"
+        android:label="CharacterOverviewFragment"
+        tools:layout="@layout/fragment_character_overview">
+        <argument
+            android:name="characterId"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">south-park</string>
+
+    <string name="item_character_name_title">Name:</string>
+    <string name="item_character_age_title">Age:</string>
+    <string name="item_character_sex_title">Sex:</string>
 </resources>
