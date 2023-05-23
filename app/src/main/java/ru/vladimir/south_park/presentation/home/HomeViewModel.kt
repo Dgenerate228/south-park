@@ -1,4 +1,4 @@
-package ru.vladimir.south_park
+package ru.vladimir.south_park.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import ru.vladimir.south_park.data.network.repository.SouseParkRepository
 import ru.vladimir.south_park.domain.model.CharacterModel
 
-class MainViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
 //    Источник данных за которым наблюдаем в MainActivity
     val charactersState get() = _charactersState.asStateFlow()
