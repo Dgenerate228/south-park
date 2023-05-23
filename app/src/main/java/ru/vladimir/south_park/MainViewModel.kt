@@ -10,6 +10,7 @@ import ru.vladimir.south_park.domain.model.CharacterModel
 
 class MainViewModel : ViewModel() {
 
+//    Источник данных за которым наблюдаем в MainActivity
     val charactersState get() = _charactersState.asStateFlow()
     private val _charactersState =
         MutableStateFlow(emptyList<CharacterModel>())
@@ -17,13 +18,17 @@ class MainViewModel : ViewModel() {
     private val souseParkRepository = SouseParkRepository()
 
     init {
+//        Вызов метода при создании класса
         getCharacters()
     }
 
     private fun getCharacters() {
         viewModelScope.launch {
+//            Запрос в сеть
             val characters = souseParkRepository.getCharactersResponse()
+//           Измененеие данных в charactersState
             _charactersState.emit(characters)
+//            Оповещение об обнавление данных идёт в месте где вызывается observe
         }
     }
 }

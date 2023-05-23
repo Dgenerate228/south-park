@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val testTv: TextView = findViewById(R.id.test_tv)
 
-
+//        Подписка на charactersState
         viewModel.charactersState.observe(this) { characters ->
             val text = StringBuilder("")
             characters.forEach { characterModel ->
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 )
 
             }
-            if(characters.isEmpty()) testTv.text = "Loading..." else testTv.text = text.toString()
+            if (characters.isEmpty()) testTv.text = "Loading..." else testTv.text = text.toString()
         }
     }
 }
