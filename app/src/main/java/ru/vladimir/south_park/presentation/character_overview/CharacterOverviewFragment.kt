@@ -8,9 +8,6 @@ import androidx.navigation.fragment.navArgs
 import ru.vladimir.south_park.R
 import ru.vladimir.south_park.common.data.observe
 import ru.vladimir.south_park.databinding.FragmentCharacterOverviewBinding
-import ru.vladimir.south_park.presentation.home.CharactersAdapter
-import ru.vladimir.south_park.presentation.home.HomeViewModel
-
 
 class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview) {
 
@@ -25,6 +22,7 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCharacterOverviewBinding.bind(view)
+        observeViewModel()
 
         val text = "${binding.characterOverviewTestTv.text}: $characterId"
         binding.characterOverviewTestTv.text = text
@@ -35,11 +33,8 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
 
     private fun observeViewModel() {
         viewModel.charactersState.observe(this) { characters ->
-            /**
-             * Действия при изменении источника данных
-             * Изенение данных в [CharactersAdapter]
-             */
-            CharacterOverviewAdapter.submitList(characters)
+            binding.characterOverviewTestTv.text =characters.name
+//            CharacterOverviewAdapter.submitList(characters)
         }
     }
 }

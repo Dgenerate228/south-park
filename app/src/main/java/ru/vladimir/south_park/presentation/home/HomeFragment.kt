@@ -16,6 +16,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val viewModel: HomeViewModel by viewModels()
 
+    // by lazy инициализирует что-угодно но потом, тогда когда мы его первый раз используем
     private val charactersAdapter by lazy {
         CharactersAdapter(onItemClick = { openCharacterOverviewFragment(it) })
     }

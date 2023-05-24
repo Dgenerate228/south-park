@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.vladimir.south_park.data.network.repository.SouseParkRepository
-import ru.vladimir.south_park.domain.model.CharacterModel
 import ru.vladimir.south_park.domain.model.CharacterOverviewModel
 
 class CharacterOverviewViewModel: ViewModel() {
@@ -14,7 +13,7 @@ class CharacterOverviewViewModel: ViewModel() {
     //    Источник данных за которым наблюдаем в MainActivity
     val charactersState get() = _charactersState.asStateFlow()
     private val _charactersState =
-        MutableStateFlow(emptyList<CharacterOverviewModel>())
+        MutableStateFlow(CharacterOverviewModel())
 
     private val souseParkRepository = SouseParkRepository()
 
