@@ -13,7 +13,7 @@ class CharacterOverviewViewModel: ViewModel() {
     //    Источник данных за которым наблюдаем в MainActivity
     val charactersState get() = _charactersState.asStateFlow()
     private val _charactersState =
-        MutableStateFlow(CharacterOverviewModel())
+        MutableStateFlow(emptyList<CharacterOverviewModel>())
 
     private val souseParkRepository = SouseParkRepository()
 

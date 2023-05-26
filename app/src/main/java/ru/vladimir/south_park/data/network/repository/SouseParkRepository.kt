@@ -42,28 +42,28 @@ class SouseParkRepository() {
             }
         }
 
-    /**
-     *     ToDo Метод для запроса деталей персонажа +
-     *     ToDo Создать В domain модель и вернуть ее в этом списке +
-     */
 
-    suspend fun getCharacterOverview(): CharacterOverviewModel =
-        withContext(Dispatchers.IO) {
-            val characterResponse = southParkApi.getCharactersOverview().data
+    suspend fun getCharacterOverview(): List<CharacterOverviewModel> =
+        withContext(Dispatchers.IO)
+        {
+           // val characterResponse = southParkApi.getCharactersOverview().data
+            southParkApi.getCharactersOverview().data.map {characterResponse ->
 
-            CharacterOverviewModel(
-                id = characterResponse.id,
-                age = characterResponse.age,
-                name = characterResponse.name,
-                sex = characterResponse.sex,
-                religion = characterResponse.religion,
-                occupation = characterResponse.occupation,
-                voicedBy = characterResponse.voiced,
-                hairColor = characterResponse.hairColor,
-                episodes = characterResponse.episodes,
-                relatives = characterResponse.relatives.map { RelativeModel(it.url, it.relation) }
+                CharacterOverviewModel(
+                    id = characterResponse.id,
+                    age = characterResponse.age,
+                    name = characterResponse.name,
+                    sex = characterResponse.sex,
+                    religion = characterResponse.religion,
+                    occupation = characterResponse.occupation,
+                    voicedBy = characterResponse.voiced,
+                    hairColor = characterResponse.hairColor,
+                    episodes = characterResponse.episodes,
+                    relatives = characterResponse.relatives.map { RelativeModel(it.url, it.relation) }
 
-            )
+                )
+
+            }
 
         }
 }
