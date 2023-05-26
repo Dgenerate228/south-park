@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_character_container_cv"
     style="@style/Widget.Material3.CardView.Filled"
     android:layout_width="match_parent"
@@ -13,55 +14,30 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/item_episodes_text"
-            style="@style/TextAppearance.Material3.TitleSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Episodes"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_weight="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/item_episodes_get"
-            style="@style/TextAppearance.Material3.TitleSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginStart="16dp"
-            android:text="GET Episodes"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_weight="0.5"
-            app:layout_constraintStart_toEndOf="@id/item_episodes_text"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/url_family_text"
             style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="URL Family: "
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/url_family"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/item_episodes_text" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/url_family_get"
+            android:id="@+id/episode_get"
             style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="GET URL "
+            tools:text="Get URL"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="0.5"
             app:layout_constraintStart_toEndOf="@id/url_family_text"
-            app:layout_constraintTop_toBottomOf="@id/item_episodes_get" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/relative_family_text"
@@ -69,7 +45,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Relative family: "
+            android:layout_marginBottom="16dp"
+            android:text="@string/relative_family"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,11 +59,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="GET Relative family: "
+            android:layout_marginBottom="16dp"
+            tools:text="Get Relative family"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="0.5"
             app:layout_constraintStart_toEndOf="@id/relative_family_text"
-            app:layout_constraintTop_toBottomOf="@id/url_family_get" />
+            app:layout_constraintTop_toBottomOf="@id/episode_get" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

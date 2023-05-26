@@ -19,14 +19,20 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
         CharacterOverviewAdapter()
     }
 
+    private val episodesAdapter by lazy {
+        EpisodesOverviewAdapter()
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCharacterOverviewBinding.bind(view)
+
         observeViewModel()
         initScreen()
+        initEpisodes()
 
-        binding.idText.text
+
         binding.nameText.text
     }
 
@@ -36,21 +42,26 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
             adapter = charactersOverviwAdapter
         }
     }
+
+    private fun initEpisodes() {
+        binding.episodeCharactersRv.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = episodesAdapter
+        }
+    }
+
     private fun observeViewModel() {
         viewModel.charactersState.observe(this) {
-//            binding.idText.text = it. . .toString()
-            charactersOverviwAdapter.submitList(it)
-            //binding.nameText.text =
-//            binding.ageText.text = characters.age.toString()
-//            binding.sexText.text = characters.sex
-//            binding.hairColorText.text = characters.hairColor
-//            binding.occupationText.text = characters.occupation
-//            binding.religionText.text = characters.religion
-//            binding.voicedByText.text= characters.voicedBy
-            //binding.relativesTextURL.text= characters.relatives.map{ it.url }.toString()
-            //binding.relativesTextRelation.text= characters.relatives.map{ it.relation }.toString()
-            //binding.episodesText.text = characters.episodes.map { it }.toString()
-            //CharacterOverviewAdapter.sub
+
+            episodesAdapter.submitList(it.episodes)
+            charactersOverviwAdapter.submitList(it.relatives)
+
+            binding.ageText.text = it.age.toString()
+            binding.nameText.text = it.name
+            binding.hairColorText.text = it.name
+            binding.occupationText.text = it.occupation
+            binding.religionText.text = it.religion
+            binding.voicedByText.text = it.voicedBy
         }
     }
 }

@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.vladimir.south_park.databinding.ItemOverviewBinding
-import ru.vladimir.south_park.domain.model.CharacterOverviewModel
+import ru.vladimir.south_park.domain.model.RelativeModel
 
-class CharacterOverviewAdapter() : ListAdapter<CharacterOverviewModel,
+class CharacterOverviewAdapter() : ListAdapter<RelativeModel,
         CharacterOverviewAdapter.ViewHolder>(
     CharactersDiffUtil()
 ) {
@@ -25,9 +25,8 @@ class CharacterOverviewAdapter() : ListAdapter<CharacterOverviewModel,
         //val age = character.age?.toString() ?: "-"
 
         with(holder.binding) {
-            itemEpisodesGet.text = character.sex
-            urlFamilyGet.text = character.religion
-            relativeFamilyGet.text = character.name
+            episodeGet.text = character.url
+            relativeFamilyGet.text = character.relation
 
         }
     }
@@ -36,16 +35,16 @@ class CharacterOverviewAdapter() : ListAdapter<CharacterOverviewModel,
         RecyclerView.ViewHolder(binding.root)
 
 
-    class CharactersDiffUtil : DiffUtil.ItemCallback<CharacterOverviewModel>() {
+    class CharactersDiffUtil : DiffUtil.ItemCallback<RelativeModel>() {
 
         override fun areItemsTheSame(
-            oldItem: CharacterOverviewModel,
-            newItem: CharacterOverviewModel,
-        ): Boolean = oldItem.id == newItem.id
+            oldItem: RelativeModel,
+            newItem: RelativeModel,
+        ): Boolean = oldItem.url == newItem.url
 
         override fun areContentsTheSame(
-            oldItem: CharacterOverviewModel,
-            newItem: CharacterOverviewModel,
+            oldItem: RelativeModel,
+            newItem: RelativeModel,
         ): Boolean = oldItem == newItem
     }
 }
