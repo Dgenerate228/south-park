@@ -8,9 +8,7 @@ import kotlinx.coroutines.launch
 import ru.vladimir.south_park.data.network.repository.SouseParkRepository
 import ru.vladimir.south_park.domain.model.CharacterOverviewModel
 
-class CharacterOverviewViewModel: ViewModel() {
-
-    //    Источник данных за которым наблюдаем в MainActivity
+class CharacterOverviewViewModel : ViewModel() {
     val charactersState get() = _charactersState.asStateFlow()
     private val _charactersState =
         MutableStateFlow(CharacterOverviewModel())
@@ -18,17 +16,13 @@ class CharacterOverviewViewModel: ViewModel() {
     private val souseParkRepository = SouseParkRepository()
 
     init {
-//        Вызов метода при создании класса
         getCharacterOverview()
     }
 
     private fun getCharacterOverview() {
         viewModelScope.launch {
-//            Запрос в сеть
             val characters = souseParkRepository.getCharacterOverview()
-//           Измененеие данных в charactersState
             _charactersState.emit(characters)
-//            Оповещение об обнавление данных идёт в месте где вызывается observe
         }
     }
 

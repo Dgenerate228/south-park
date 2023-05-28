@@ -15,14 +15,13 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
 
     private val viewModel: CharacterOverviewViewModel by viewModels()
 
-    private val charactersOverviwAdapter by lazy {
+    private val charactersOverviewAdapter by lazy {
         CharacterOverviewAdapter()
     }
 
     private val episodesAdapter by lazy {
         EpisodesOverviewAdapter()
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,14 +31,12 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
         initScreen()
         initEpisodes()
 
-
-        binding.nameText.text
     }
 
     private fun initScreen() {
         binding.homeCharactersRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = charactersOverviwAdapter
+            adapter = charactersOverviewAdapter
         }
     }
 
@@ -53,15 +50,16 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
     private fun observeViewModel() {
         viewModel.charactersState.observe(this) {
 
-            episodesAdapter.submitList(it.episodes)
-            charactersOverviwAdapter.submitList(it.relatives)
+            episodesAdapter.submitList(it.episodes).hashCode()
+            charactersOverviewAdapter.submitList(it.relatives)
 
-            binding.ageText.text = it.age.toString()
+            binding.ageGet.text = it.age.toString()
+            binding.sexGet.text = it.sex
             binding.nameText.text = it.name
-            binding.hairColorText.text = it.name
-            binding.occupationText.text = it.occupation
-            binding.religionText.text = it.religion
-            binding.voicedByText.text = it.voicedBy
+            binding.hairColorGet.text = it.name
+            binding.occupationGet.text = it.occupation
+            binding.religionGet.text = it.religion
+            binding.voicedByGet.text = it.voicedBy.toString()
         }
     }
 }

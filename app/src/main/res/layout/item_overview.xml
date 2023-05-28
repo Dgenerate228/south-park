@@ -28,16 +28,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/episode_get"
+            android:id="@+id/url_get"
             style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            tools:text="Get URL"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="0.5"
             app:layout_constraintStart_toEndOf="@id/url_family_text"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Get URL" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/relative_family_text"
@@ -60,12 +60,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginBottom="16dp"
-            tools:text="Get Relative family"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="0.5"
             app:layout_constraintStart_toEndOf="@id/relative_family_text"
-            app:layout_constraintTop_toBottomOf="@id/episode_get" />
+            app:layout_constraintTop_toBottomOf="@id/url_get"
+            tools:text="Get Relative family" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
