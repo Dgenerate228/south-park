@@ -29,8 +29,6 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
 
         observeViewModel()
         initScreen()
-        initEpisodes()
-
     }
 
     private fun initScreen() {
@@ -38,9 +36,7 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
             layoutManager = LinearLayoutManager(requireContext())
             adapter = charactersOverviewAdapter
         }
-    }
 
-    private fun initEpisodes() {
         binding.episodeCharactersRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = episodesAdapter
