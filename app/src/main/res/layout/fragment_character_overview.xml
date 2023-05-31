@@ -1,21 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/character_overview_test_tv"
-        style="@style/TextAppearance.Material3.TitleLarge"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="Character overview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/nameText"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Name: "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/ageGet"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/ageView"
+            app:layout_constraintStart_toStartOf="@id/occupationGet"
+            app:layout_constraintTop_toBottomOf="@id/nameText"
+            tools:ignore="HardcodedText"
+            tools:text="Get Age" />
+
+        <TextView
+            android:id="@+id/ageView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Age: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameText"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/sexGet"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/hairColorGet"
+            app:layout_constraintStart_toEndOf="@id/sexView"
+            app:layout_constraintStart_toStartOf="@id/occupationGet"
+            app:layout_constraintTop_toBottomOf="@id/ageGet"
+            tools:ignore="HardcodedText"
+            tools:text="Get sex " />
+
+        <TextView
+            android:id="@+id/sexView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Sex: "
+            app:layout_constraintBottom_toTopOf="@id/hairColorView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ageView"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/hairColorGet"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/occupationGet"
+            app:layout_constraintStart_toEndOf="@id/hairColorView"
+            app:layout_constraintStart_toStartOf="@id/occupationGet"
+            app:layout_constraintTop_toBottomOf="@id/sexGet"
+            tools:ignore="HardcodedText"
+            tools:text="Get hair color " />
+
+        <TextView
+            android:id="@+id/hairColorView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Hair color: "
+            app:layout_constraintBottom_toTopOf="@id/occupationView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sexView"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/occupationGet"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/religionGet"
+            app:layout_constraintStart_toEndOf="@id/occupationView"
+            app:layout_constraintTop_toBottomOf="@id/hairColorGet"
+            tools:ignore="HardcodedText"
+            tools:text="Get occupation " />
+
+        <TextView
+            android:id="@+id/occupationView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Occupation: "
+            app:layout_constraintBottom_toTopOf="@id/religionView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hairColorView"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/religionGet"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/voicedByGet"
+            app:layout_constraintStart_toEndOf="@id/religionView"
+            app:layout_constraintStart_toStartOf="@id/occupationGet"
+            app:layout_constraintTop_toBottomOf="@id/occupationGet"
+            tools:ignore="HardcodedText"
+            tools:text="Get religion: " />
+
+        <TextView
+            android:id="@+id/religionView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Religion: "
+            app:layout_constraintBottom_toTopOf="@id/voicedByView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/occupationView"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/voicedByGet"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/voicedByView"
+            app:layout_constraintStart_toStartOf="@id/occupationGet"
+            app:layout_constraintTop_toBottomOf="@id/religionGet"
+            tools:ignore="HardcodedText"
+            tools:text="Get Voiced by: " />
+
+        <TextView
+            android:id="@+id/voicedByView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Voiced by: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/religionGet"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/familyView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Family list"
+            app:layout_constraintBottom_toTopOf="@id/home_characters_rv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/voicedByView"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_characters_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/familyView"
+            tools:listitem="@layout/item_overview" />
+
+        <TextView
+            android:id="@+id/episodes_text"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Episodes "
+            app:layout_constraintBottom_toTopOf="@id/episode_characters_rv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_characters_rv"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/episode_characters_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/episodes_text"
+            tools:listitem="@layout/item_episodes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -2,9 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_character_container_cv"
     style="@style/Widget.Material3.CardView.Filled"
     android:layout_width="match_parent"
-    android:id="@+id/item_character_container_cv"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginTop="16dp">
@@ -95,7 +95,5 @@
             app:layout_constraintTop_toTopOf="@+id/item_character_sex_title_tv"
             tools:text="Male" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </com.google.android.material.card.MaterialCardView>

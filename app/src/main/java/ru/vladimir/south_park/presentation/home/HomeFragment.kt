@@ -28,7 +28,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         initScreen()
     }
 
-    //Инициализация RecyclerView
     private fun initScreen() {
         binding.homeCharactersRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -36,13 +35,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    // Подписка на источники данных
     private fun observeViewModel() {
         viewModel.charactersState.observe(this) { characters ->
-            /**
-             * Действия при изменении источника данных
-             * Изенение данных в [CharactersAdapter]
-             */
             charactersAdapter.submitList(characters)
         }
     }

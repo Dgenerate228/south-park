@@ -22,9 +22,7 @@ class CharactersAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val character = getItem(position)
-
         val age = character.age?.toString() ?: "-"
-
         with(holder.binding) {
             itemCharacterNameTv.text = character.name
             itemCharacterAgeTv.text = age
@@ -41,11 +39,11 @@ class CharactersDiffUtil : DiffUtil.ItemCallback<CharacterModel>() {
 
     override fun areItemsTheSame(
         oldItem: CharacterModel,
-        newItem: CharacterModel
+        newItem: CharacterModel,
     ): Boolean = oldItem.id == newItem.id
 
     override fun areContentsTheSame(
         oldItem: CharacterModel,
-        newItem: CharacterModel
+        newItem: CharacterModel,
     ): Boolean = oldItem == newItem
 }
