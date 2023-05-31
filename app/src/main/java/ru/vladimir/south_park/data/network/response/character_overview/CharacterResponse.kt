@@ -13,6 +13,5 @@ data class CharacterResponse(
     @SerializedName("grade") val grade: String?,
     @SerializedName("religion") val religion: String,
     @SerializedName("relatives") val relatives: List<Relatives>,
-    @SerializedName("episodes") val episodes: List<String>
-
+    @SerializedName("episodes") val episodes: List<String>,
 )

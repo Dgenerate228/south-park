@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.vladimir.south_park.databinding.ItemEpisodesBinding
 
-class EpisodesOverviewAdapter : ListAdapter<String,
-        EpisodesOverviewAdapter.ViewHolder>(
+class EpisodesOverviewAdapter : ListAdapter<String, EpisodesOverviewAdapter.ViewHolder>(
     CharactersDiffUtil()
 ) {
 
@@ -20,7 +19,6 @@ class EpisodesOverviewAdapter : ListAdapter<String,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val episode = getItem(position)
-
         with(holder.binding) {
             urlGet.text = episode
         }

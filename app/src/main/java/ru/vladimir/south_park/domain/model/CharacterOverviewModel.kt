@@ -1,6 +1,5 @@
 package ru.vladimir.south_park.domain.model
 
-
 data class CharacterOverviewModel(
     val id: Int = 0,
     val name: String = "",

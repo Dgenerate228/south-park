@@ -26,7 +26,6 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCharacterOverviewBinding.bind(view)
-
         observeViewModel()
         initScreen()
     }
@@ -48,7 +47,6 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
 
             episodesAdapter.submitList(it.episodes).hashCode()
             charactersOverviewAdapter.submitList(it.relatives)
-
             binding.ageGet.text = it.age.toString()
             binding.sexGet.text = it.sex
             binding.nameText.text = it.name

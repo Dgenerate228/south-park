@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.vladimir.south_park.databinding.ItemOverviewBinding
 import ru.vladimir.south_park.domain.model.RelativeModel
 
-class CharacterOverviewAdapter : ListAdapter<RelativeModel,
-        CharacterOverviewAdapter.ViewHolder>(
+class CharacterOverviewAdapter : ListAdapter<RelativeModel, CharacterOverviewAdapter.ViewHolder>(
     CharactersDiffUtil()
 ) {
 
@@ -21,7 +20,6 @@ class CharacterOverviewAdapter : ListAdapter<RelativeModel,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val character = getItem(position)
-
         with(holder.binding) {
             urlGet.text = character.url
             relativeFamilyGet.text = character.relation

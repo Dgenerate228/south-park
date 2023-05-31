@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Relatives(
     @SerializedName("url") val url: String,
-    @SerializedName("relation") val relation: String
+    @SerializedName("relation") val relation: String,
 )

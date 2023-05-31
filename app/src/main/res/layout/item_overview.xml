@@ -67,7 +67,5 @@
             app:layout_constraintTop_toBottomOf="@id/url_get"
             tools:text="Get Relative family" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </com.google.android.material.card.MaterialCardView>

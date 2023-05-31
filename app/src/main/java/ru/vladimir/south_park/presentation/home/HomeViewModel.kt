@@ -11,8 +11,7 @@ import ru.vladimir.south_park.domain.model.CharacterModel
 class HomeViewModel : ViewModel() {
 
     val charactersState get() = _charactersState.asStateFlow()
-    private val _charactersState =
-        MutableStateFlow(emptyList<CharacterModel>())
+    private val _charactersState = MutableStateFlow(emptyList<CharacterModel>())
 
     private val souseParkRepository = SouseParkRepository()
 

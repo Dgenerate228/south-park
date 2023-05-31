@@ -39,7 +39,5 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Get URL" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </com.google.android.material.card.MaterialCardView>

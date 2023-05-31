@@ -65,9 +65,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Sex: "
+            app:layout_constraintBottom_toTopOf="@id/hairColorView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ageView"
-            app:layout_constraintBottom_toTopOf="@id/hairColorView"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -173,14 +173,14 @@
             style="@style/TextAppearance.Material3.TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Family list"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/voicedByView"
-            app:layout_constraintBottom_toTopOf="@id/home_characters_rv"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Family list"
+            app:layout_constraintBottom_toTopOf="@id/home_characters_rv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/voicedByView"
             tools:ignore="HardcodedText" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -200,12 +200,12 @@
             style="@style/TextAppearance.Material3.TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="Episodes "
-            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@id/episode_characters_rv"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_characters_rv"
             tools:ignore="HardcodedText" />
 
@@ -220,7 +220,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/episodes_text"
             tools:listitem="@layout/item_episodes" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -10,8 +10,7 @@ import ru.vladimir.south_park.domain.model.CharacterOverviewModel
 
 class CharacterOverviewViewModel : ViewModel() {
     val charactersState get() = _charactersState.asStateFlow()
-    private val _charactersState =
-        MutableStateFlow(CharacterOverviewModel())
+    private val _charactersState = MutableStateFlow(CharacterOverviewModel())
 
     private val souseParkRepository = SouseParkRepository()
 
@@ -25,5 +24,4 @@ class CharacterOverviewViewModel : ViewModel() {
             _charactersState.emit(characters)
         }
     }
-
 }
