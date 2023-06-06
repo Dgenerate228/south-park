@@ -7,4 +7,8 @@
     <string name="relative_family">Relative family:</string>
     <string name="url_family">URL Family:</string>
     <string name="episode">Episode:</string>
+
+    <!--  Navigation menu  -->
+    <string name="menu_home_title">Home</string>
+    <string name="menu_episodes_title">Episodes</string>
 </resources>
