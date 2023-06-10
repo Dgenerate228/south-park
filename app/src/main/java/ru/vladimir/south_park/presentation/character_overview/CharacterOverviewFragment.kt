@@ -19,10 +19,6 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
         CharacterOverviewAdapter()
     }
 
-    private val episodesAdapter by lazy {
-        EpisodesOverviewAdapter()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCharacterOverviewBinding.bind(view)
@@ -35,17 +31,10 @@ class CharacterOverviewFragment : Fragment(R.layout.fragment_character_overview)
             layoutManager = LinearLayoutManager(requireContext())
             adapter = charactersOverviewAdapter
         }
-
-        binding.episodeCharactersRv.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = episodesAdapter
-        }
     }
 
     private fun observeViewModel() {
         viewModel.charactersState.observe(this) {
-
-            episodesAdapter.submitList(it.episodes).hashCode()
             charactersOverviewAdapter.submitList(it.relatives)
             binding.ageGet.text = it.age.toString()
             binding.sexGet.text = it.sex

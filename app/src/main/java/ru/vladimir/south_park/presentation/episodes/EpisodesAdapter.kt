@@ -1,4 +1,4 @@
-package ru.vladimir.south_park.presentation.character_overview
+package ru.vladimir.south_park.presentation.episodes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.vladimir.south_park.databinding.ItemEpisodesBinding
+import ru.vladimir.south_park.domain.model.EpisodesModel
 
-class EpisodesOverviewAdapter : ListAdapter<String, EpisodesOverviewAdapter.ViewHolder>(
-    CharactersDiffUtil()
+class EpisodesAdapter: ListAdapter<EpisodesModel, EpisodesAdapter.ViewHolder>(
+    EpisodesDiffUtil()
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -18,25 +19,27 @@ class EpisodesOverviewAdapter : ListAdapter<String, EpisodesOverviewAdapter.View
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val episode = getItem(position)
+        val episodes = getItem(position)
         with(holder.binding) {
-            urlGet.text = episode
+            episodeTextGet.text = episodes.episode.toString()
+            seasonTextGet.text = episodes.season.toString()
+            urlGet.text = episodes.wikiUrl
         }
     }
 
     inner class ViewHolder(internal val binding: ItemEpisodesBinding) :
         RecyclerView.ViewHolder(binding.root)
+}
 
-    class CharactersDiffUtil : DiffUtil.ItemCallback<String>() {
+class EpisodesDiffUtil : DiffUtil.ItemCallback<EpisodesModel>() {
 
-        override fun areItemsTheSame(
-            oldItem: String,
-            newItem: String,
-        ): Boolean = oldItem == newItem
+    override fun areItemsTheSame(
+        oldItem: EpisodesModel,
+        newItem: EpisodesModel,
+    ): Boolean = oldItem.id == newItem.id
 
-        override fun areContentsTheSame(
-            oldItem: String,
-            newItem: String,
-        ): Boolean = oldItem == newItem
-    }
+    override fun areContentsTheSame(
+        oldItem: EpisodesModel,
+        newItem: EpisodesModel,
+    ): Boolean = oldItem == newItem
 }

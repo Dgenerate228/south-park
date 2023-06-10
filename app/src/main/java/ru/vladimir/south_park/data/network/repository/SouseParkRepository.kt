@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import ru.vladimir.south_park.data.network.api.SouthParkApi
 import ru.vladimir.south_park.domain.model.CharacterModel
 import ru.vladimir.south_park.domain.model.CharacterOverviewModel
+import ru.vladimir.south_park.domain.model.EpisodesModel
 import ru.vladimir.south_park.domain.model.RelativeModel
 
 class SouseParkRepository {
@@ -41,5 +42,22 @@ class SouseParkRepository {
             hairColor = characterResponse.hairColor,
             episodes = characterResponse.episodes,
             relatives = characterResponse.relatives.map { RelativeModel(it.url, it.relation) })
+    }
+
+    suspend fun getEpisodes(): EpisodesModel = withContext(Dispatchers.IO) {
+        val episodesResponse = southParkApi.getEpisodes().episodes
+        EpisodesModel(
+            id = episodesResponse.id,
+            name = episodesResponse.name,
+            season = episodesResponse.season,
+            episode = episodesResponse.episode,
+            airDate = episodesResponse.airDate,
+            wikiUrl = episodesResponse.wikiUrl,
+            thumbnailUrl = episodesResponse.thumbnailUrl,
+            description = episodesResponse.description,
+            createdAt = episodesResponse.createdAt,
+            updatedAt = episodesResponse.updatedAt,
+            characters = episodesResponse.characters
+        )
     }
 }
