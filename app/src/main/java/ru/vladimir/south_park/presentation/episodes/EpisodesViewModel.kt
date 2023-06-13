@@ -11,7 +11,7 @@ import ru.vladimir.south_park.domain.model.EpisodesModel
 class EpisodesViewModel: ViewModel() {
 
     val episodesState get() = _episodesState.asStateFlow()
-    private val _episodesState = MutableStateFlow(EpisodesModel())
+    private val _episodesState = MutableStateFlow(emptyList<EpisodesModel>())
 
     private val souseParkRepository = SouseParkRepository()
 

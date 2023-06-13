@@ -31,12 +31,11 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = episodesAdapter
         }
-
     }
 
     private fun observeViewModel() {
         viewModel.episodesState.observe(this) {
-            binding.episodesRv
+            episodesAdapter.submitList(it)
         }
     }
 

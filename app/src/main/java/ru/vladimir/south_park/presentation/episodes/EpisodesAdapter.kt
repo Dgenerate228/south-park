@@ -21,9 +21,9 @@ class EpisodesAdapter: ListAdapter<EpisodesModel, EpisodesAdapter.ViewHolder>(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val episodes = getItem(position)
         with(holder.binding) {
+            titleEpisodeGet.text = episodes.name
             episodeTextGet.text = episodes.episode.toString()
             seasonTextGet.text = episodes.season.toString()
-            urlGet.text = episodes.wikiUrl
         }
     }
 

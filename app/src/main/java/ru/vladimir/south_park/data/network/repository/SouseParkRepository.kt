@@ -44,20 +44,21 @@ class SouseParkRepository {
             relatives = characterResponse.relatives.map { RelativeModel(it.url, it.relation) })
     }
 
-    suspend fun getEpisodes(): EpisodesModel = withContext(Dispatchers.IO) {
-        val episodesResponse = southParkApi.getEpisodes().episodes
-        EpisodesModel(
-            id = episodesResponse.id,
-            name = episodesResponse.name,
-            season = episodesResponse.season,
-            episode = episodesResponse.episode,
-            airDate = episodesResponse.airDate,
-            wikiUrl = episodesResponse.wikiUrl,
-            thumbnailUrl = episodesResponse.thumbnailUrl,
-            description = episodesResponse.description,
-            createdAt = episodesResponse.createdAt,
-            updatedAt = episodesResponse.updatedAt,
-            characters = episodesResponse.characters
-        )
+    suspend fun getEpisodes(): List<EpisodesModel> = withContext(Dispatchers.IO) {
+        southParkApi.getEpisodes().episodes.map {
+            EpisodesModel(
+                id = it.id,
+                name = it.name,
+                season = it.season,
+                episode = it.episode,
+                airDate = it.airDate,
+                wikiUrl = it.wikiUrl,
+                thumbnailUrl = it.thumbnailUrl,
+                description = it.description,
+                createdAt = it.createdAt,
+                updatedAt = it.updatedAt,
+                characters = it.characters
+            )
+        }
     }
 }
