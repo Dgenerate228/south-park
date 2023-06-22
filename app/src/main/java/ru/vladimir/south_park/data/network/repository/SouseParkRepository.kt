@@ -10,6 +10,7 @@ import ru.vladimir.south_park.data.network.api.SouthParkApi
 import ru.vladimir.south_park.domain.model.CharacterModel
 import ru.vladimir.south_park.domain.model.CharacterOverviewModel
 import ru.vladimir.south_park.domain.model.EpisodesModel
+import ru.vladimir.south_park.domain.model.EpisodesOverviewModel
 import ru.vladimir.south_park.domain.model.RelativeModel
 
 class SouseParkRepository {
@@ -60,5 +61,9 @@ class SouseParkRepository {
                 characters = it.characters
             )
         }
+    }
+
+    suspend fun getEpisodesOverview(): EpisodesOverviewModel = withContext(Dispatchers.IO) {
+        southParkApi.getEpisodesOverview().
     }
 }

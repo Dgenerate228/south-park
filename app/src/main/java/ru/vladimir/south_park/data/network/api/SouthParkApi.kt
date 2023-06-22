@@ -4,6 +4,7 @@ import retrofit2.http.GET
 import ru.vladimir.south_park.data.network.response.character_overview.CharacterResponseModel
 import ru.vladimir.south_park.data.network.response.characters.CharactersResponseModel
 import ru.vladimir.south_park.data.network.response.episodes.EpisodesResponseModel
+import ru.vladimir.south_park.data.network.response.episodes_overview.EpisodesOverviewModel
 
 interface SouthParkApi {
     @GET("characters/")
@@ -13,4 +14,9 @@ interface SouthParkApi {
 
     @GET("episodes")
     suspend fun getEpisodes(): EpisodesResponseModel
+
+    @GET("episodes/1")
+    suspend fun getEpisodesOverview(): EpisodesOverviewModel
+
+
 }
